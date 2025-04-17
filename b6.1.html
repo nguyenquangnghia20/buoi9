@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đổi màu chữ</title>
+  <style>
+    #text {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #btn {
+      padding: 5px 10px;
+      background-color: #e0e0e0;
+      border: 1px solid #aaa;
+      cursor: pointer;
+    }
+
+    .xanh {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <p id="text">đổi màu tôi đi</p>
+    <button id="btn">xanh</button>
+  </div>
+
+  <script>
+    document.getElementById("btn").onclick = function() {
+      document.getElementById("text").classList.add("xanh");
+    };
+  </script>
+
+</body>
+</html>

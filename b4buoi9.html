@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Đăng Ký</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  background-color: white;
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  color: #8e2877;
+  text-align: center;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+input[type="submit"], input[type="reset"] {
+  padding: 8px 16px;
+  margin-right: 10px;
+  background-color: #8e2877;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #a33a8b;
+}
+
+  </style>
+  <script>
+    function validateForm() {
+      const ho = document.forms["registerForm"]["ho"].value.trim();
+      const ten = document.forms["registerForm"]["ten"].value.trim();
+      const sdt = document.forms["registerForm"]["sdt"].value.trim();
+
+      if (ho === "" || ten === "" || sdt === "") {
+        alert("Vui lòng nhập đầy đủ họ, tên và số điện thoại.");
+        return false;
+      }
+
+      if (!/^\d{10}$/.test(sdt)) {
+        alert("Số điện thoại phải là 10 chữ số.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <form name="registerForm" onsubmit="return validateForm();">
+      <h2>FORM ĐĂNG KÝ</h2>
+      
+      <label>Họ</label><br>
+      <input type="text" name="ho"><br><br>
+
+      <label>Tên</label><br>
+      <input type="text" name="ten"><br><br>
+
+      <label>Ngày sinh:</label><br>
+      Ngày 
+      <select name="ngay">
+        <script>
+          for (let i = 1; i <= 31; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select>
+      Tháng 
+      <select name="thang">
+        <script>
+          for (let i = 1; i <= 12; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select>
+      Năm 
+      <select name="nam">
+        <script>
+          for (let i = 1980; i <= 2024; i++) {
+            document.write(`<option value="${i}">${i}</option>`);
+          }
+        </script>
+      </select><br><br>
+
+      <label>Giới tính:</label>
+      <input type="radio" name="gioitinh" value="Nam" checked> Nam
+      <input type="radio" name="gioitinh" value="Nữ"> Nữ<br><br>
+
+      <label>Số điện thoại</label><br>
+      <input type="text" name="sdt"><br><br>
+
+      <label>Sở thích</label><br>
+      <input type="checkbox" name="sothich" value="Đọc sách"> Đọc sách
+      <input type="checkbox" name="sothich" value="Xem phim"> Xem phim
+      <input type="checkbox" name="sothich" value="Nghe nhạc"> Nghe nhạc
+      <input type="checkbox" name="sothich" value="Đá bóng"> Đá bóng<br><br>
+
+      <label>Khác</label><br>
+      <input type="text" name="khac"><br><br>
+
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+  </div>
+</body>
+</html>
